@@ -34,83 +34,19 @@ public class Tabuleiro {
             return true;
         }
         
-        private Boolean isLuzAcessa(Posicao p){
-            // Valida se a posição é valida
-            if (this.isAcaoValida(p) == false){
-                return false;
-            }
-            // Quando for valida, vai retornar true para aceso e false para apagado
-            if(this.pecas[p.linha][p.coluna] == 1){
-                return true;
-            }else{
-                return false;
-            }
-        }
         
-        private int luzesAcesas(Posicao p){
-            // Valida quantas luzes adjacentes estao acesas
-            int luzesAcesas = 0;
-            
-            // Centro
-            if (isLuzAcessa(p) == true){luzesAcesas += 1;}
-            // Acima
-            if (isLuzAcessa(new Posicao(p.linha-1, p.coluna)) == true){luzesAcesas += 1;}
-            // Abaixo
-            if (isLuzAcessa(new Posicao(p.linha+1, p.coluna)) == true){luzesAcesas += 1;}
-            // Esquerda
-            if (isLuzAcessa(new Posicao(p.linha, p.coluna-1)) == true){luzesAcesas += 1;}
-            // Direita
-            if (isLuzAcessa(new Posicao(p.linha, p.coluna+1)) == true){luzesAcesas += 1;}
-            return luzesAcesas;
-        }
-        
-        public Map<Posicao,Integer> todasLuzesAcesas(){
+        public Collection<Posicao> todasLuzesAcesas(){
             // Retorna um Map com as peças com mais luzes acesas adjacentes
-            Map<Posicao,Integer> posicoesComMaisLuzes = new HashMap<>();
-            int maxLuzesAcessas = 0;
-            int qtdLuzes;
+            Collection<Posicao> posicoesComMaisLuzes = new ArrayList<>();
             
             for(int i=0; i<this.tam; i++) {
                 for(int j=0; j<this.tam; j++) {
-                    qtdLuzes = this.luzesAcesas(new Posicao(i,j));
-                    posicoesComMaisLuzes.put(new Posicao(i,j), qtdLuzes);
+                    posicoesComMaisLuzes.add(new Posicao(i,j));
 	        }
 	    }           
             return posicoesComMaisLuzes;
         }
-        
-        private int luzesAdjacentes(Posicao p){
-            // Valida quantas luzes estao adjacentes, independente do estado delas
-            int luzesAdjacentes = 0;
-
-            // Centro
-            if (isAcaoValida(p) == true){luzesAdjacentes += 1;}
-            // Acima
-            if (isAcaoValida(new Posicao(p.linha-1, p.coluna)) == true){luzesAdjacentes += 1;}
-            // Abaixo
-            if (isAcaoValida(new Posicao(p.linha+1, p.coluna)) == true){luzesAdjacentes += 1;}
-            // Esquerda
-            if (isAcaoValida(new Posicao(p.linha, p.coluna-1)) == true){luzesAdjacentes += 1;}
-            // Direita
-            if (isAcaoValida(new Posicao(p.linha, p.coluna+1)) == true){luzesAdjacentes += 1;}
-            return luzesAdjacentes;
-        }
-        
-        public Map<Posicao,Integer> todasLuzesAdjacentes(){
-            // Retorna um Map com todas as peças adjacentes de cada posição
-            Map<Posicao,Integer> todasLuzesAdjacentes = new HashMap<>();
-            int luzes; 
                     
-            for(int i=0; i<this.tam; i++) {
-                for(int j=0; j<this.tam; j++) {
-                    luzes = luzesAdjacentes(new Posicao(i,j));
-                    todasLuzesAdjacentes.put(new Posicao(i,j), luzes);
-	        }
-	    }           
-            return todasLuzesAdjacentes;
-        }
-        
-        
         private void trocaValor(Posicao p){
             if (this.isAcaoValida(p) == true){
                 if (this.pecas[p.linha][p.coluna] == 0){

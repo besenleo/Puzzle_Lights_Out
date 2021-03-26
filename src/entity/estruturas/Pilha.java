@@ -6,23 +6,22 @@ import entity.Estado;
 
 public class Pilha implements EstadoAbertos{
 	
-	private Stack<Estado> elementos = new Stack<>();
+    private Stack<Estado> elementos = new Stack<>();
 
-	@Override
-	public void push(Estado estado) {
-		this.elementos.push(estado);
-	}
+    @Override
+    public void push(Estado estado) {
+        if(!elementos.contains(estado)){
+            this.elementos.push(estado);
+        }
+    }
 
-	@Override
-	public Estado pop() {
-		return this.elementos.pop();
-	}
+    @Override
+    public Estado pop() {
+	return this.elementos.pop();
+    }
 
-	@Override
-	public int size() {
-		return this.elementos.size();
-	}
-	
-	
-
+    @Override
+    public int size() {
+        return this.elementos.size();
+    }
 }

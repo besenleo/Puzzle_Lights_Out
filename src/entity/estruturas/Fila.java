@@ -7,21 +7,23 @@ import entity.Estado;
 
 public class Fila implements EstadoAbertos{
 	
-	Queue<Estado> elementos = new LinkedList<>();
+    Queue<Estado> elementos = new LinkedList<>();
 
-	@Override
-	public void push(Estado estado) {
-		elementos.add(estado);
-	}
+    @Override
+    public void push(Estado estado) {
+        if(!elementos.contains(estado)){
+            elementos.add(estado);
+        }   
+    }
 
-	@Override
-	public Estado pop() {
-		return elementos.poll();
-	}
+    @Override
+    public Estado pop() {
+        return elementos.poll();
+    }
 
-	@Override
-	public int size() {
-		return elementos.size();
-	}
+    @Override
+    public int size() {
+        return elementos.size();
+    }
 
 }
