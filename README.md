@@ -13,8 +13,8 @@ A = Dado um estado e, gerar todos os estados, onde para cada quadrado selecionad
 I = Qualquer matriz quadrada de tamanho 3x3, 4x4 ou 5x5, com n casas ligadas (representadas pelo valor 1) e n casas desligadas (representadas pelo valor 0).
 
 DO = O conjunto de ações que resultam em uma matriz do mesmo tamanho da matriz de entrada, cujos valores são todos desligados (zero). Como a matriz exemplificada abaixo: 
-'''
+```
 0 0 0
 0 0 0
 0 0 0
-'''
+```
