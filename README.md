@@ -6,7 +6,7 @@ Segue abaixo uma breve descrição do espaço de estados do projeto:
 
 # Espaço de Estados Lights Out
 
-N = Dado um tamanho n entre 3 e 5, todas as matrizes quadradas nxm apenas com combinações de valores 0 (que representam luzes apagas) ou 1 (que representam luzes ligadas) do tamanho especificado.
+N = Dado um tamanho n entre 3 e 5, todas as matrizes quadradas de tamanho n, apenas com combinações de valores 0 (que representam luzes apagas) ou 1 (que representam luzes ligadas) do tamanho especificado.
 
 A = Dado um estado e, gerar todos os estados, onde a ação muda a quantidade o estado das luzes adjacente do quadrado selecionado.
 
